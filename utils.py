@@ -47,13 +47,18 @@ def Classify_Text(inp ):
 
 
 def Generate_Text(prompt , placeholder , offline_path , online_path):
-    bot = load_chatbot(offline_path , online_path)
-    gen_txt=""
-    for text in bot(f"Chat : {prompt}  Reply : " ,  stop=['Chat : ']  , stream=True):
-        print(text , end="")
-        gen_txt = gen_txt + text
-        placeholder.markdown(gen_txt ,unsafe_allow_html=True)
-    return gen_txt
+    if(online_path=="openai-community/gpt2"):
+        bot=load_chatbot(offline_path , online_path)
+        gen_txt = bot(f"Chat : {prompt}  Reply : " ,  stop=['Chat : ']  )
+        return gen_txt
+    else:
+        bot = load_chatbot(offline_path , online_path)
+        gen_txt=""
+        for text in bot(f"Chat : {prompt}  Reply : " ,  stop=['Chat : ']  , stream=True):
+            print(text , end="")
+            gen_txt = gen_txt + text
+            placeholder.markdown(gen_txt ,unsafe_allow_html=True)
+        return gen_txt
 
 
 

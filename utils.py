@@ -21,7 +21,10 @@ def load_chatbot(offline_path , online_path):
     if os.path.exists(offline_path):
         chatbot = AutoModelForCausalLM.from_pretrained(offline_path)
     else:
-        chatbot = AutoModelForCausalLM.from_pretrained(online_path)
+        if(online_path=="openai-community/gpt2"):
+            chatbot = pipeline("text-generation", model=online_path)
+        else:    
+            chatbot = AutoModelForCausalLM.from_pretrained(online_path)
     return chatbot
 
 

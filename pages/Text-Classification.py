@@ -23,9 +23,9 @@ if comment:
     first = result[0]
     print(first)
 
-    label = first.get('label')
+    label = first['label']
 
-    score = first.get['score']
+    score = first['score']
 
     if label == "POSITIVE":
         session_state.POSTITVE.append(comment)

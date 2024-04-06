@@ -9,28 +9,29 @@ import os
 @st.cache_resource
 def load_classifier():
     path = "Models/Text-Classifier-Model"
-    classifier = pipeline(task="text-classification"  , model=path)
+    if os.path.exists(path):
+        classifier = pipeline(task="text-classification"  , model=path)
+    else:
+        classifier = pipeline(task="text-classification" )
     return classifier
 
-# @st.cache_resource
-# def load_chatbot(model):
-#     model_path = "Models/MistralAI-Chatbot-Model"
-#     chatbot = AutoModelForCausalLM.from_pretrained(model)
-#     return chatbot
 
 @st.cache_resource
 def load_chatbot(offline_path , online_path):
     if os.path.exists(offline_path):
         chatbot = AutoModelForCausalLM.from_pretrained(offline_path)
     else:
-        chatbot = pipeline("text-generation", model=online_path)
+        chatbot = AutoModelForCausalLM.from_pretrained(online_path)
     return chatbot
 
 
 @st.cache_resource
 def load_stable_diffuser():
     path = "Models/Stable-Diffuser-Img-Generator-Model"
-    generator = DiffusionPipeline.from_pretrained(path)
+    if os.path.exists(path):
+        generator = DiffusionPipeline.from_pretrained(path)
+    else:
+        generator = DiffusionPipeline.from_pretrained("stabilityai/stable-diffusion-xl-base-1.0")
     return generator
 
 #-----------------------------MODEL WORKING-----------------------------#

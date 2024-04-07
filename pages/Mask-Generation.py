@@ -20,7 +20,7 @@ if(image):
     with st.spinner("Generation mask.."):
         image = Image.open(image)
         result= Generate_Mask(image)
-        st.image(image)
+
         
         rad = st.slider("Specify blur power", 1, 100)
         bg_mask=result[0]['mask']

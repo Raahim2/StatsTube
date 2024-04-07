@@ -3,7 +3,6 @@ import streamlit as st
 from transformers import pipeline
 from diffusers import DiffusionPipeline
 from ctransformers import AutoModelForCausalLM
-from diffusers.utils import export_to_gif
 import os
 
 
@@ -78,8 +77,4 @@ def Summrize_Text(prompt):
     summrized_text = summrizer(prompt , max_length=2000)
     return summrized_text
 
-def Turn_To_3D(prompt):
-    model = load_3d()
-    images = model(prompt, num_inference_steps=10, size=256,).images
-    gif_path = export_to_gif(images, "generated.gif")
-    return gif_path
+

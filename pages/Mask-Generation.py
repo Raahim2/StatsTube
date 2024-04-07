@@ -10,7 +10,24 @@ st.title("Mask Generation")
 image= st.file_uploader("Choose an image", type=['png', 'jpg', 'jpeg'])
 
 
+options = ["Background", "Hair", "Clothes","Face","Pant"]
 
+
+selected = st.selectbox("Select what do you want to blur", options)
+
+if(selected=="Background"):
+    target=0
+if(selected=="Hair"):
+    target=2
+if(selected=="Clothes"):
+    target=3
+if(selected=="Face"):
+    target=4
+if(selected=="Pant"):
+    target=5
+   
+   
+   
 
 
 
@@ -23,7 +40,7 @@ if(image):
 
         
         rad = st.slider("Specify blur power", 1, 100)
-        bg_mask=result[3]['mask']
+        bg_mask=result[target]['mask']
         gen= Image.composite(image,Image.new('RGB',image.size,0),bg_mask)
         
         blur = gen.filter(ImageFilter.GaussianBlur(rad))

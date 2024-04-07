@@ -23,5 +23,5 @@ if(image):
         st.image(image)
         for i in range(8):
             mask=result[i]['mask']
-            gen= Image.composite(image,mask)
+            gen= Image.composite(image,Image.new('RGB',image.size,0),mask)
             st.image(gen)

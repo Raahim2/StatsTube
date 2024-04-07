@@ -1,12 +1,10 @@
 import streamlit as st
 from PIL import Image
-from utils import Generate_Mask
-
-
+from utils import *
 
 st.title("Mask Generation")
 
-
+#Generate_Mask
 
 
 

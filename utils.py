@@ -3,8 +3,9 @@ import streamlit as st
 from transformers import pipeline
 from diffusers import DiffusionPipeline
 from ctransformers import AutoModelForCausalLM
-import os
 from diffusers.utils import export_to_gif
+import os
+
 
 #-----------------------------LOADING MODELS-----------------------------#
 @st.cache_resource

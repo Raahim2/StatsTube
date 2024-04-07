@@ -43,6 +43,16 @@ def load_summrizer():
     summrizer = pipeline("summarization", model="Falconsai/medical_summarization")
     return summrizer
 
+@st.cache_resource
+def load_mask_generator():
+    path = "Models/Mask-generator"
+    if os.path.exists(path):
+        pipe = pipeline("image-segmentation", model=path)
+    else:
+        pipe = pipeline("image-segmentation", model="mattmdjaga/segformer_b2_clothes")
+    return pipe
+
+    
 
 #-----------------------------MODEL WORKING-----------------------------#
 
@@ -73,3 +83,8 @@ def Summrize_Text(prompt):
     summrizer = load_summrizer()
     summrized_text = summrizer(prompt , max_length=2000)
     return summrized_text
+
+def Generate_Mask(image):
+    model = load_mask_generator()
+    result = model(image)
+    return result

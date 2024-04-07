@@ -4,6 +4,7 @@ from transformers import pipeline
 from diffusers import DiffusionPipeline
 from ctransformers import AutoModelForCausalLM
 import os
+from diffusers.utils import export_to_gif
 
 #-----------------------------LOADING MODELS-----------------------------#
 @st.cache_resource
@@ -37,6 +38,15 @@ def load_stable_diffuser():
         generator = DiffusionPipeline.from_pretrained("stabilityai/stable-diffusion-xl-base-1.0")
     return generator
 
+@st.cache_resource
+def load_summrizer():
+    summrizer = pipeline("summarization", model="Falconsai/medical_summarization")
+    return summrizer
+
+def load_3d():
+    model3d = DiffusionPipeline.from_pretrained("openai/shap-e")
+    return model3d
+
 #-----------------------------MODEL WORKING-----------------------------#
 
 
@@ -61,3 +71,14 @@ def Generate_Image(prompt , num):
     generator = load_stable_diffuser()
     im =  generator(prompt , num_inference_steps=num).images[0]
     return im
+
+def Summrize_Text(prompt):
+    summrizer = load_summrizer()
+    summrized_text = summrizer(prompt , max_length=2000)
+    return summrized_text
+
+def Turn_To_3D(prompt):
+    model = load_3d()
+    images = model(prompt, num_inference_steps=10, size=256,).images
+    gif_path = export_to_gif(images, "generated.gif")
+    return gif_path

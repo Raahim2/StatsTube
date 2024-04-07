@@ -7,9 +7,9 @@ st.title("Mask Generation")
 #Generate_Mask
 
 
+image= st.file_uploader("Choose an image", type=['png', 'jpg', 'jpeg'])
 
 
-image= st.file_uploder("Uplode")
 
 
 

@@ -38,10 +38,6 @@ def load_stable_diffuser():
         generator = DiffusionPipeline.from_pretrained("stabilityai/stable-diffusion-xl-base-1.0")
     return generator
 
-@st.cache_resource
-def load_summrizer():
-    summrizer = pipeline("summarization", model="Falconsai/medical_summarization")
-    return summrizer
 
 
 #-----------------------------MODEL WORKING-----------------------------#
@@ -69,9 +65,6 @@ def Generate_Image(prompt , num):
     im =  generator(prompt , num_inference_steps=num).images[0]
     return im
 
-def Summrize_Text(prompt):
-    summrizer = load_summrizer()
-    summrized_text = summrizer(prompt , max_length=2000)
-    return summrized_text
+
 
 

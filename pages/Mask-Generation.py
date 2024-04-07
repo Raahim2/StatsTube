@@ -1,5 +1,5 @@
 import streamlit as st
-from PIL import Image
+from PIL import Image , ImageFilter
 from utils import *
 
 st.title("Mask Generation")
@@ -25,3 +25,5 @@ if(image):
         bg_mask=result[0]['mask']
         gen= Image.composite(image,Image.new('RGB',image.size,0),bg_mask)
         st.image(gen)
+        blur = gen.filter(ImageFilter.GaussianBlur(20))
+        st.image(blur)

@@ -17,7 +17,7 @@ image= st.file_uploader("Choose an image", type=['png', 'jpg', 'jpeg'])
 
 
 if(image):
-    with st.spinner("Summrizing text.."):
+    with st.spinner("Generation mask.."):
         image = Image.open(image)
         result= Generate_Mask(image)
         st.image(image)

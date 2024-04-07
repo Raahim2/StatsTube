@@ -20,6 +20,7 @@ if(image):
     with st.spinner("Summrizing text.."):
         image = Image.open(image)
         result= Generate_Mask(image)
-        for i in range(16):
+        st.image(image)
+        for i in range(10):
             bg=result[i]['mask']
             st.image(bg)

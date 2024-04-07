@@ -22,9 +22,9 @@ if(selected=="Hair"):
 if(selected=="Clothes"):
     target=3
 if(selected=="Face"):
-    target=4
+    target=6
 if(selected=="Pant"):
-    target=5
+    target=4
    
    
    

@@ -31,4 +31,6 @@ if(image):
         st.image(inverted_mask)
         mask_inv_orig = Image.composite(image,Image.new('RGB',image.size,0),inverted_mask)
         st.image(mask_inv_orig)
+        final = Image.composite(mask_inv_orig,blur,inverted_mask)
+        st.image(final)
         

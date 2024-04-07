@@ -21,6 +21,7 @@ if(image):
         image = Image.open(image)
         result= Generate_Mask(image)
         st.image(image)
-        for i in range(10):
-            bg=result[i]['mask']
-            st.image(bg)
+        for i in range(8):
+            mask=result[i]['mask']
+            gen= Image.composite(image,mask)
+            st.image(gen)

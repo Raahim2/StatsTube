@@ -21,16 +21,17 @@ if(image):
         image = Image.open(image)
         result= Generate_Mask(image)
         st.image(image)
-        #for i in range(8):
+        
+        rad = st.slider("Specify blur power", 1, 100)
         bg_mask=result[0]['mask']
         gen= Image.composite(image,Image.new('RGB',image.size,0),bg_mask)
-        st.image(gen)
-        blur = gen.filter(ImageFilter.GaussianBlur(20))
-        st.image(blur)
+        
+        blur = gen.filter(ImageFilter.GaussianBlur(rad))
+        
         inverted_mask = ImageOps.invert(bg_mask)
-        st.image(inverted_mask)
+       
         mask_inv_orig = Image.composite(image,Image.new('RGB',image.size,0),inverted_mask)
-        st.image(mask_inv_orig)
+        
         final = Image.composite(mask_inv_orig,blur,inverted_mask)
         st.image(final)
         

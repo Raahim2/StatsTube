@@ -43,9 +43,6 @@ def load_summrizer():
     summrizer = pipeline("summarization", model="Falconsai/medical_summarization")
     return summrizer
 
-def load_3d():
-    model3d = DiffusionPipeline.from_pretrained("openai/shap-e")
-    return model3d
 
 #-----------------------------MODEL WORKING-----------------------------#
 

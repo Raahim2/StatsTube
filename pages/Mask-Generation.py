@@ -1,5 +1,5 @@
 import streamlit as st
-from PIL import Image , ImageFilter
+from PIL import Image , ImageFilter,ImageOps
 from utils import *
 
 st.title("Mask Generation")
@@ -27,3 +27,8 @@ if(image):
         st.image(gen)
         blur = gen.filter(ImageFilter.GaussianBlur(20))
         st.image(blur)
+        inverted_mask = ImageOps.inverte(bg_mask)
+        st.image(inverted_mask)
+        mask_inv_orig = Image.composite(image,Image.new('RGB',image.size,0),inverted_mask)
+        st.image(mask_inv_orig)
+        

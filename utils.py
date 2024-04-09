@@ -4,7 +4,6 @@ from transformers import pipeline
 from diffusers import DiffusionPipeline
 from ctransformers import AutoModelForCausalLM
 import os
-import torch
 
 
 #-----------------------------LOADING MODELS-----------------------------#
@@ -27,8 +26,6 @@ def load_chatbot(offline_path , online_path):
             chatbot = pipeline("text-generation", model=online_path)
         else:    
             chatbot = AutoModelForCausalLM.from_pretrained(online_path)
-            device = "cuda"
-            chatbot = chatbot.to(device)
     return chatbot
 
 

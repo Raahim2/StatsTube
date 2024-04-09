@@ -28,7 +28,7 @@ def load_chatbot(offline_path , online_path):
         else:    
             chatbot = AutoModelForCausalLM.from_pretrained(online_path)
             device = "cuda"
-            chatbot.to(device)
+            chatbot = chatbot.to(device)
     return chatbot
 
 

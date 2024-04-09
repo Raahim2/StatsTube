@@ -40,7 +40,11 @@ def load_stable_diffuser():
 
 @st.cache_resource
 def load_summrizer():
-    summrizer = pipeline("summarization", model="Falconsai/medical_summarization")
+    path="Models/Text-Summrizer-Model"
+    if os.path.exists(path):
+        summrizer = pipeline("summarization", model=path)
+    else:
+        summrizer = pipeline("summarization", model="Falconsai/medical_summarization")
     return summrizer
 
 @st.cache_resource
@@ -51,6 +55,15 @@ def load_mask_generator():
     else:
         pipe = pipeline("image-segmentation", model="mattmdjaga/segformer_b2_clothes")
     return pipe
+
+@st.cache_resource
+def load_detector():
+    path = "Models/Object-Detector"
+    if os.path.exists(path):
+        detector = pipeline("object-detection", model=path)
+    else:
+        detector = pipeline("object-detection", model="facebook/detr-resnet-50")
+    return detector
 
     
 
@@ -88,3 +101,8 @@ def Generate_Mask(image):
     model = load_mask_generator()
     result = model(image)
     return result
+
+def Detect(image):
+    model = load_detector()
+    res = model(image)
+    return res

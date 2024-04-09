@@ -18,19 +18,14 @@ selected = st.selectbox("Select what do you want to blur", options)
 if(selected=="Background"):
     target=0
 if(selected=="Hair"):
-    target=2
+    target=1
 if(selected=="Clothes"):
-    target=3
+    target=2
 if(selected=="Face"):
-    target=6
-if(selected=="Pant"):
     target=4
+if(selected=="Pant"):
+    target=5
    
-   
-   
-
-
-
 
 
 if(image):

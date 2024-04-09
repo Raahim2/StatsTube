@@ -1,5 +1,5 @@
 import streamlit as st
-from utils import Detect
+from utils import *
 
 st.header("Object Detctor")
 

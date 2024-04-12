@@ -24,7 +24,7 @@ st.markdown("_Markdown_")
 st.latex(r""" e^{i\pi} + 1 = 0 """)
 st.title("My title")
 st.header("My header")
-st.subheader("My sub")
+st.subheader("Explain this code")
 st.code("""def f(a, b):
     if a == 0:
         return b

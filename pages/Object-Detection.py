@@ -16,8 +16,8 @@ my_llm_stream = my_generator
 
 st.write("Most objects") 
 st.write(["st", "is <", 3]) 
-st.write_stream(my_generator)
-st.write_stream(my_llm_stream)
+#st.write_stream(my_generator)
+#st.write_stream(my_llm_stream)
 
 st.text("Fixed width text")
 st.markdown("_Markdown_") 

@@ -1,4 +1,15 @@
 import streamlit as st
+import pandas as pd
+
+my_dataframe = pd.DataFrame({
+    'A': [1, 2, 3, 4, 5],
+    'B': ['a', 'b', 'c', 'd', 'e']
+})
+
+data = pd.DataFrame({
+    'X': [10, 20, 30, 40, 50],
+    'Y': [100, 200, 300, 400, 500]
+})
 
 my_generator="This code adds a player character 'P' with a black background color to the grid. It also implements movement based on swipe gestures. You can swipe up, down, left, or right to move the player character accordingly on the grid. The player character cannot move through walls ('W') or outside the grid boundaries."
 my_llm_stream = my_generator
@@ -15,3 +26,8 @@ st.title("My title")
 st.header("My header")
 st.subheader("My sub")
 st.code("for i in range(8): foo()")
+
+st.dataframe(my_dataframe)
+st.table(data.iloc[0:10])
+st.json({"foo": "bar", "fu": "ba"})
+st.metric("My metric", 42, 2)

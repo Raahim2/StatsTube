@@ -29,5 +29,5 @@ st.code("for i in range(8): foo()")
 
 st.dataframe(my_dataframe)
 st.table(data.iloc[0:10])
-st.json({"foo": "bar", "fu": "ba"})
+st.json({"javascript": "react.js", "python": "Django"})
 st.metric("My metric", 42, 2)

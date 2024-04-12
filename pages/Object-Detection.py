@@ -25,7 +25,14 @@ st.latex(r""" e^{i\pi} + 1 = 0 """)
 st.title("My title")
 st.header("My header")
 st.subheader("My sub")
-st.code("for i in range(8): foo()")
+st.code("""def f(a, b):
+    if a == 0:
+        return b
+    else:
+        return f(a - 1, a + b)
+
+print(f(5, 10))
+""")
 
 st.dataframe(my_dataframe)
 st.table(data.iloc[0:10])

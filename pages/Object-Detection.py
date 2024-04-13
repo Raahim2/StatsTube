@@ -1,5 +1,6 @@
 import streamlit as st
 import pandas as pd
+import numpy as np
 
 my_dataframe = pd.DataFrame({
     'A': [1, 2, 3, 4, 5],
@@ -10,6 +11,31 @@ data = pd.DataFrame({
     'X': [10, 20, 30, 40, 50],
     'Y': [100, 200, 300, 400, 500]
 })
+
+
+# Sample DataFrame
+data = {
+    'Category': ['A', 'B', 'C', 'D'],
+    'Value': [25, 30, 15, 20]
+}
+df = pd.DataFrame(data)
+
+# Displaying a bar chart
+st.bar_chart(df)
+
+# Displaying a line chart
+st.line_chart(df)
+
+# Displaying an area chart
+st.area_chart(df)
+
+# Displaying a scatter chart
+scatter_data = pd.DataFrame({
+    'x': np.random.randn(100),
+    'y': np.random.randn(100)
+})
+st.scatter_chart(scatter_data)
+
 
 my_generator="This code adds a player character 'P' with a black background color to the grid. It also implements movement based on swipe gestures. You can swipe up, down, left, or right to move the player character accordingly on the grid. The player character cannot move through walls ('W') or outside the grid boundaries."
 my_llm_stream = my_generator

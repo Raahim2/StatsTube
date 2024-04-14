@@ -11,7 +11,14 @@ data = pd.DataFrame({
     'X': [10, 20, 30, 40, 50],
     'Y': [100, 200, 300, 400, 500]
 })
+expand = st.expander("My label")
+expand.write("Inside the expander.")
+pop = st.popover("Button label")
+pop.checkbox("Show all")
 
+
+with expand:
+   st.radio("Select one:", [1, 2])
 
 # Sample DataFrame
 data = {

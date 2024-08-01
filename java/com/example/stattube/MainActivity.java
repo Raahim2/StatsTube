@@ -61,7 +61,7 @@ public class MainActivity extends AppCompatActivity {
     private static final String APPLICATION_NAME = "My_First_Project";
     private static final JsonFactory JSON_FACTORY = GsonFactory.getDefaultInstance();
     public static final HttpTransport HTTP_TRANSPORT = new NetHttpTransport();
-    private static final String API_KEY = "AIzaSyC8ocLxvWzGtpa_BS6Zp75FviHKkyOrFxI";
+    private static final String API_KEY = "API_KEY";
 
 
 

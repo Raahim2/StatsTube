@@ -16,10 +16,9 @@ With StatsTube, users can explore metrics, compare channels, and gain insights i
 ## 📱 Demo
 
 <p align="center">
+  <img src="demo/5.png" width="150" />
   <img src="demo/1.png" width="150" />
   <img src="demo/2.png" width="150" />
   <img src="demo/3.png" width="150" />
-  <img src="demo/4.png" width="150" />
-  <img src="demo/5.png" width="150" />
   <img src="demo/6.png" width="150" />
 </p>

@@ -3,7 +3,7 @@
 
 
 
-![Image](/res/drawable/analysis.png)
+![Image](/app/src/main/res/mipmap-hdpi/applogo.png)
 
 StatsTube is a YouTube analytics app built with **JAVA** that helps creators and viewers understand channel performance and video statistics in detail.  
 
